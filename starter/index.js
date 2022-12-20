@@ -87,12 +87,12 @@ var finances = [
     ['Feb-2017', 671099] // changes 671099 - 138230
     ];
     
-    // The total number of months included in the dataset.
+   
     console.log (finances.length) 
 
 var totalAmount = 0
 
-    // find out length of finances array
+  
     for (var i = 0; i < finances.length; i++) {
         console.log(finances[i][1])
         console.log("at the moment total amount equals ", totalAmount)
@@ -100,6 +100,26 @@ var totalAmount = 0
     }console.log("now total amount equals ", totalAmount)
 
     console.log("totalAmount; ", totalAmount)
+    
+    
+
+var totProfitChange = finances[0][1];
+for (var i = 1; i < finances.length; i++) {
+    totProfitChange += finances[i][1] - finances[i-1][1];
+}
+
+var avergProfitChange = totProfitChange / finances.length;
+console.log("Average change in profit: " + avergProfitChange.toFixed(2));
+document.write("Average change in profit: " + avergProfitChange.toFixed(2));
+
+
+console.log((totProfitChange - finances[0][1])/(finances.length - 1));
+
+var maxProfitChange = finances[0][1];
+var maxProfitMonth = finances[0][0];
+      // find out length of finances array
+
+     // The total number of months included in the dataset.
     // The net total amount of Profit/Losses over the entire period.
 
     // loop through the finances array and get the value of the profit/losses by accessing it manually
@@ -108,13 +128,6 @@ var totalAmount = 0
     //   total = total + finances[i][1]
     
     // The average of the changes in Profit/Losses over the entire period.
-    var avrg = [totalAmount]
-    var sum = 0;
-    for (var number of avrg) {
-        sum += number;
-    }
-    average = sum / avrg.length;
-    console.log("the average is ", average);
     // create new array called it financeChanges to store changes for each months
     // loop finances array and calculate the changes
     // for i in finances

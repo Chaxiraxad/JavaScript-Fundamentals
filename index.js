@@ -99,7 +99,7 @@ var totalAmount = 0
         totalAmount = totalAmount + finances[i][1]
     }console.log("now total amount equals ", totalAmount)
 
-    console.log("totalAmount; ", totalAmount)
+    // console.log("totalAmount; ", totalAmount)
     
     
 
@@ -117,6 +117,19 @@ console.log((totProfitChange - finances[0][1])/(finances.length - 1));
 
 var maxProfitChange = finances[0][1];
 var maxProfitMonth = finances[0][0];
+
+console.log("Maximum Profit Change: ", maxProfitChange)
+
+console.log("Max Profit Month ", maxProfitMonth)
+
+
+
+
+
+
+
+
+
       // find out length of finances array
 
      // The total number of months included in the dataset.

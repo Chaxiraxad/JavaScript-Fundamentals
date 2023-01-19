@@ -1,5 +1,5 @@
 var finances = [
-    ['Jan-2010', 867884], // changes 867884 - 0, or changes = 0
+    ['Jan-2010', 867884], 
     ['Feb-2010', 984655],
     ['Mar-2010', 322013],
     ['Apr-2010', -69417],
@@ -87,82 +87,73 @@ var finances = [
     ['Feb-2017', 671099] // changes 671099 - 138230
     ];
     
-   
-    console.log (finances.length) 
+   // find out length of finances array
 
+    console.log ("Total Months: ", finances.length) 
+
+
+    // The net total amount of Profit/Losses over the entire period.
 var totalAmount = 0
 
-  
     for (var i = 0; i < finances.length; i++) {
-        console.log(finances[i][1])
-        console.log("at the moment total amount equals ", totalAmount)
         totalAmount = totalAmount + finances[i][1]
-    }console.log("now total amount equals ", totalAmount)
+    }console.log("total amount equals &", totalAmount)
 
-    // console.log("totalAmount; ", totalAmount)
-    
-    
-
+  
 var totProfitChange = finances[0][1];
 for (var i = 1; i < finances.length; i++) {
     totProfitChange += finances[i][1] - finances[i-1][1];
 }
 
-var avergProfitChange = totProfitChange / finances.length;
-console.log("Average change in profit: " + avergProfitChange.toFixed(2));
-document.write("Average change in profit: " + avergProfitChange.toFixed(2));
+
+// The average of the changes in Profit/Losses over the entire period.
+(totProfitChange - finances[0][1])/(finances.length - 1);
+var a = ((totProfitChange - finances[0][1])/(finances.length - 1)).toFixed(2)
+console.log(`You average is &${a}`)
 
 
-console.log((totProfitChange - finances[0][1])/(finances.length - 1));
-
-var maxProfitChange = finances[0][1];
-var maxProfitMonth = finances[0][0];
-
-console.log("Maximum Profit Change: ", maxProfitChange)
-
-console.log("Max Profit Month ", maxProfitMonth)
+//Object to store data
+var highestIncrease = { 
+    date: finances[0][0],
+    amount: finances[0][1] 
+}
 
 
+for(var i = 1; i < finances.length; i++) {
+    if(finances[i][1] - finances[i-1][1] > highestIncrease.amount)
+   {highestIncrease.date = finances[i][0];
+    highestIncrease.amount = finances[i][1] - finances[i-1][1]
+
+}
+
+//The greatest increase in profits
+}
+console.log("Highest Increase: ", highestIncrease);
+
+var biggestDecrease = { 
+    date: finances[0][0],
+    amount: finances[0][1]
+    }
 
 
-
-
-
-
-
-      // find out length of finances array
-
-     // The total number of months included in the dataset.
-    // The net total amount of Profit/Losses over the entire period.
-
-    // loop through the finances array and get the value of the profit/losses by accessing it manually
-    // var total = 0
-    // for i in finances
-    //   total = total + finances[i][1]
+    // The greatest decrease in losses 
+    for(var i = 1; i < finances.length; i++) {
+        if(finances[i][1] - finances[i-1][1] < biggestDecrease.amount)
+        {biggestDecrease.date = finances[i][0];
+        biggestDecrease.amount = finances[i][1] - finances[i-1][1]}
+    }
+    console.log("Highest Decrease: ", biggestDecrease); 
     
-    // The average of the changes in Profit/Losses over the entire period.
-    // create new array called it financeChanges to store changes for each months
-    // loop finances array and calculate the changes
-    // for i in finances
-    //   var profitLosses = finances[i][1]
-    //   financeChanges.push(finances[i+1][1] - finances[i][1])
-    // Be careful on the last month finances[i+1] will not exist!
-    // find out the length of financeChanges array
-    // Calculate the total changes using the same method as the previous question
-    // Calculate the averate
-    
-    // The greatest increase in profits (date and amount) over the entire period.
-    // var highestEarning = 0
-    // for i in financeChanges
-    //   compare financeChanges[i] with highestEarning
-    //   if financeChanges[i] > highestEarning then replace highestEarning with financeChanges[i]
-    // Or use Math.max() for the amount, or sort from highest to lowest and get the value of the first index
-    // how about the date?
-    // Find the index of the maximum element in financeChanges array
-    // get the month from finance array with the same index that we have found
-    
-    // The greatest decrease in losses (date and amount) over the entire period.
-    // Google "how to find minimum value of an array in javascript"
-    
-    
-    
+document.write("Total Months: 86")
+document.write("<br>");
+document.write("Total: &38382578")
+document.write("<br>");
+document.write("Average  Change: &-2315.12")
+document.write("<br>");
+document.write("Highest Increase: Feb-2012 (1926159)")
+document.write("<br>");
+document.write("Highest Decrease Sep-2013 (-2196167)")
+document.write("<br>");
+
+      
+   
